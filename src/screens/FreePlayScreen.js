@@ -1,15 +1,15 @@
-import React from "react";
-import { StyleSheet, View, Text, Button, StatusBar } from "react-native";
+import React from 'react';
+import {StyleSheet, View, Text, Button, StatusBar} from 'react-native';
 
-import Header from "../components/Header";
+import Header from '../components/Header';
 
-export default function FreePlayScreen({ navigation }) {
+export default function FreePlayScreen({navigation}) {
   return (
     <View style={styles.container}>
       <Header title="Kalimba Everywhere" />
       <Button
         title="Start Free Play"
-        onPress={() => navigation.navigate("Kalimba")}
+        onPress={() => navigation.navigate('Kalimba')}
       />
     </View>
   );
@@ -18,7 +18,7 @@ export default function FreePlayScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

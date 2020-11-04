@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -6,9 +6,10 @@ import {
   Dimensions,
   StatusBar,
   Button,
-} from "react-native";
+  Settings,
+} from 'react-native';
 
-import Kalimba from "../components/Kalimba";
+import Kalimba from '../components/Kalimba';
 
 export default class KalimbaScreen extends React.Component {
   constructor(props) {
@@ -17,11 +18,12 @@ export default class KalimbaScreen extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.state = {
       landscape: this.isLandscape(),
+      kalimbaSettings: null,
     };
   }
 
   isLandscape() {
-    const dimensions = Dimensions.get("screen");
+    const dimensions = Dimensions.get('screen');
     return dimensions.width >= dimensions.height;
   }
 
@@ -29,11 +31,11 @@ export default class KalimbaScreen extends React.Component {
     if (this.isLandscape()) {
       this.hasPlayed = true;
     } else if (this.hasPlayed && !this.isLandscape()) {
-      this.props.navigation.navigate("Free Play");
+      this.props.navigation.navigate('Free Play');
     }
 
     const mode = this.isLandscape();
-    this.setState({ landscape: mode });
+    this.setState({landscape: mode});
   }
 
   componentDidMount() {
@@ -41,11 +43,19 @@ export default class KalimbaScreen extends React.Component {
       this.hasPlayed = true;
     }
 
-    Dimensions.addEventListener("change", this.onChange);
+    Dimensions.addEventListener('change', this.onChange);
+
+    this.setState({
+      kalimbaSettings: {
+        shouldSpeakNotes: Settings.get('shouldSpeakNotes') || false,
+        shouldShowNoteLabels: Settings.get('shouldShowNoteLabels') || true,
+        numberOfKeys: Settings.get('numberOfKeys') || 10,
+      },
+    });
   }
 
   componentWillUnmount() {
-    Dimensions.removeEventListener("change", this.onChange);
+    Dimensions.removeEventListener('change', this.onChange);
     StatusBar.setHidden(false);
   }
 
@@ -64,7 +74,9 @@ export default class KalimbaScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden />
-        <Kalimba />
+        {this.state.kalimbaSettings && (
+          <Kalimba {...this.state.kalimbaSettings} />
+        )}
       </View>
     );
   }
@@ -73,7 +85,7 @@ export default class KalimbaScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

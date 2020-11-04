@@ -16,6 +16,9 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* KalimbaEverywhereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KalimbaEverywhereTests.m */; };
+		30089B16253B55230086201C /* DirectTouchViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30089B15253B55230086201C /* DirectTouchViewManager.swift */; };
+		30089B1C253B57D70086201C /* DirectTouchViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30089B1B253B57D70086201C /* DirectTouchViewManager.m */; };
+		30089B5B253BBCC40086201C /* audio in Resources */ = {isa = PBXBuildFile; fileRef = 30089B5A253BBCC40086201C /* audio */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8D8F14CD97AC0FD798250B6B /* libPods-KalimbaEverywhere-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48129374D7661944B9085446 /* libPods-KalimbaEverywhere-tvOS.a */; };
 		E0C2D9F9F8CA83702B33C5D2 /* libPods-KalimbaEverywhere-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FCC778470D37C0F79FB725 /* libPods-KalimbaEverywhere-tvOSTests.a */; };
@@ -53,6 +56,10 @@
 		2C452506FA829E6C824DF699 /* Pods-KalimbaEverywhere-KalimbaEverywhereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KalimbaEverywhere-KalimbaEverywhereTests.debug.xcconfig"; path = "Target Support Files/Pods-KalimbaEverywhere-KalimbaEverywhereTests/Pods-KalimbaEverywhere-KalimbaEverywhereTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* KalimbaEverywhere-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KalimbaEverywhere-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* KalimbaEverywhere-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KalimbaEverywhere-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30089B14253B55230086201C /* KalimbaEverywhere-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KalimbaEverywhere-Bridging-Header.h"; sourceTree = "<group>"; };
+		30089B15253B55230086201C /* DirectTouchViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectTouchViewManager.swift; sourceTree = "<group>"; };
+		30089B1B253B57D70086201C /* DirectTouchViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirectTouchViewManager.m; sourceTree = "<group>"; };
+		30089B5A253BBCC40086201C /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; name = audio; path = ../audio; sourceTree = "<group>"; };
 		36359A819148580BDA4EA5AD /* Pods-KalimbaEverywhere-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KalimbaEverywhere-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-KalimbaEverywhere-tvOSTests/Pods-KalimbaEverywhere-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48129374D7661944B9085446 /* libPods-KalimbaEverywhere-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KalimbaEverywhere-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A09A6D2849DE0E0A6E40B7C /* libPods-KalimbaEverywhere-KalimbaEverywhereTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KalimbaEverywhere-KalimbaEverywhereTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +139,10 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				30089B15253B55230086201C /* DirectTouchViewManager.swift */,
+				30089B1B253B57D70086201C /* DirectTouchViewManager.m */,
+				30089B14253B55230086201C /* KalimbaEverywhere-Bridging-Header.h */,
+				30089B5A253BBCC40086201C /* audio */,
 			);
 			name = KalimbaEverywhere;
 			sourceTree = "<group>";
@@ -286,7 +297,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -295,7 +306,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 7L9RZ8F954;
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1200;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -341,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30089B5B253BBCC40086201C /* audio in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -570,7 +582,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				30089B16253B55230086201C /* DirectTouchViewManager.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				30089B1C253B57D70086201C /* DirectTouchViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +625,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C452506FA829E6C824DF699 /* Pods-KalimbaEverywhere-KalimbaEverywhereTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7L9RZ8F954;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -618,7 +633,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = KalimbaEverywhereTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -635,11 +650,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 815890329284E31E5908BBF9 /* Pods-KalimbaEverywhere-KalimbaEverywhereTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 7L9RZ8F954;
 				INFOPLIST_FILE = KalimbaEverywhereTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -670,8 +686,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = KalimbaEverywhere;
+				SWIFT_OBJC_BRIDGING_HEADER = "KalimbaEverywhere-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -693,7 +711,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = KalimbaEverywhere;
+				SWIFT_OBJC_BRIDGING_HEADER = "KalimbaEverywhere-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -722,7 +742,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -750,7 +770,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -777,7 +797,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KalimbaEverywhere-tvOS.app/KalimbaEverywhere-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -804,7 +824,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KalimbaEverywhere-tvOS.app/KalimbaEverywhere-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -831,6 +851,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -855,7 +876,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
@@ -891,6 +912,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -908,7 +930,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
@@ -917,6 +939,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
