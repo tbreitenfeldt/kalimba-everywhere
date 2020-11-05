@@ -16,6 +16,7 @@ export default class Kalimba extends React.Component {
     numberOfKeys: PropTypes.number,
     shouldSpeakNotes: PropTypes.bool,
     shouldShowNoteLabels: PropTypes.bool,
+    showOctiveNumbers: PropTypes.bool,
   };
 
   constructor(props) {
@@ -63,7 +64,9 @@ export default class Kalimba extends React.Component {
     if (this.props.shouldSpeakNotes) {
       AccessibilityInfo.isScreenReaderEnabled().then((value) => {
         if (value) {
-          AccessibilityInfo.announceForAccessibility(note);
+          AccessibilityInfo.announceForAccessibility(
+            this.props.showOctiveNumbers ? note : this.stripOctiveNumber(note),
+          );
         }
       });
     }
@@ -86,6 +89,10 @@ export default class Kalimba extends React.Component {
     }, 1);
   }
 
+  stripOctiveNumber(note) {
+    return note.replace(/\d+$/, '');
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -95,7 +102,11 @@ export default class Kalimba extends React.Component {
               {this.kalimbaKeys.map((note, index) => {
                 return (
                   <View style={styles.keyLabel} key={note + 'Label'}>
-                    <Text>{note}</Text>
+                    <Text>
+                      {this.props.showOctiveNumbers
+                        ? note
+                        : this.stripOctiveNumber(note)}
+                    </Text>
                   </View>
                 );
               })}

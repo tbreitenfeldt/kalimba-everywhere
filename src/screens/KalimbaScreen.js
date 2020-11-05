@@ -49,6 +49,7 @@ export default class KalimbaScreen extends React.Component {
       shouldSpeakNotes: SettingsManager.get('shouldSpeakNotes'),
       shouldShowNoteLabels: SettingsManager.get('shouldShowNoteLabels'),
       numberOfKeys: SettingsManager.get('numberOfKeys'),
+      showOctiveNumbers: SettingsManager.get('showOctiveNumbers'),
     };
     this.setState({kalimbaSettings: data});
   }

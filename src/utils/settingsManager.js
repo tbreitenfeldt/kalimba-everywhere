@@ -4,6 +4,7 @@ const defaultSettings = {
   shouldShowNoteLabels: true,
   shouldSpeakNotes: false,
   numberOfKeys: 10,
+  showOctiveNumbers: false,
 };
 
 export default class SettingsManager {

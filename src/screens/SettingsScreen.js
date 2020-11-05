@@ -11,6 +11,9 @@ export default class SettingsScreen extends React.Component {
     this.setSpeakNotesSetting = this.setSpeakNotesSetting.bind(this);
     this.setShowNoteLabelsSetting = this.setShowNoteLabelsSetting.bind(this);
     this.setNumberOfKeysSetting = this.setNumberOfKeysSetting.bind(this);
+    this.setShowOctiveNumbersSetting = this.setShowOctiveNumbersSetting.bind(
+      this,
+    );
   }
 
   setSpeakNotesSetting(event) {
@@ -31,11 +34,18 @@ export default class SettingsScreen extends React.Component {
     this.setState({numberOfKeys: value});
   }
 
+  setShowOctiveNumbersSetting(event) {
+    const value = !this.state.showOctiveNumbers;
+    SettingsManager.set('showOctiveNumbers', value);
+    this.setState({showOctiveNumbers: value});
+  }
+
   componentDidMount() {
     this.setState({
       shouldSpeakNotes: SettingsManager.get('shouldSpeakNotes'),
       shouldShowNoteLabels: SettingsManager.get('shouldShowNoteLabels'),
       numberOfKeys: SettingsManager.get('numberOfKeys'),
+      showOctiveNumbers: SettingsManager.get('showOctiveNumbers'),
     });
   }
 
@@ -71,6 +81,18 @@ export default class SettingsScreen extends React.Component {
             ios_backgroundColor="#3e3e3e"
             onValueChange={this.setShowNoteLabelsSetting}
             value={this.state.shouldShowNoteLabels}
+          />
+        </View>
+
+        <View style={styles.setting}>
+          <Text accessible={false}>Show octive numbers</Text>
+          <Switch
+            accessibilityLabel={'Show octive numbers'}
+            trackColor={{false: '#767577', true: '#81b0ff'}}
+            thumbColor="#f5dd4b"
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={this.setShowOctiveNumbersSetting}
+            value={this.state.showOctiveNumbers}
           />
         </View>
       </View>
