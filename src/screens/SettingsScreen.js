@@ -1,47 +1,46 @@
 import React from 'react';
-import {Settings, StyleSheet, View, Text, Switch} from 'react-native';
+import {StyleSheet, View, Text, Switch} from 'react-native';
 
 import Header from '../components/Header';
+import SettingsManager from '../utils/settingsManager';
 
 export default class SettingsScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {kalimbaSettings: null};
+    this.state = {};
     this.setSpeakNotesSetting = this.setSpeakNotesSetting.bind(this);
     this.setShowNoteLabelsSetting = this.setShowNoteLabelsSetting.bind(this);
     this.setNumberOfKeysSetting = this.setNumberOfKeysSetting.bind(this);
   }
 
-  setSpeakNotesSetting() {
-    const newConfiguration = !this.state.kalimbaSettings.shouldSpeakNotes;
-    Settings.set({shouldSpeakNotes: newConfiguration});
-    this.setState({kalimbaSettings: {shouldSpeakNotes: newConfiguration}});
+  setSpeakNotesSetting(event) {
+    const value = !this.state.shouldSpeakNotes;
+    SettingsManager.set('shouldSpeakNotes', value);
+    this.setState({shouldSpeakNotes: value});
   }
 
-  setShowNoteLabelsSetting() {
-    const newConfiguration = !this.state.kalimbaSettings.shouldShowNoteLabels;
-    Settings.set({shouldShowNoteLabels: newConfiguration});
-    this.setState({kalimbaSettings: {shouldShowNoteLabels: newConfiguration}});
+  setShowNoteLabelsSetting(event) {
+    const value = !this.state.shouldShowNoteLabels;
+    SettingsManager.set('shouldShowNoteLabels', value);
+    this.setState({shouldShowNoteLabels: value});
   }
 
-  setNumberOfKeysSetting() {
-    const newConfiguration = !this.state.kalimbaSettings.numberOfKeys;
-    Settings.set({numberOfKeys: newConfiguration});
-    this.setState({kalimbaSettings: {numberOfKeys: newConfiguration}});
+  setNumberOfKeysSetting(event) {
+    const value = event;
+    SettingsManager.set('numberOfKeys', value);
+    this.setState({numberOfKeys: value});
   }
 
   componentDidMount() {
     this.setState({
-      kalimbaSettings: {
-        shouldSpeakNotes: Settings.get('shouldSpeakNotes') || false,
-        shouldShowNoteLabels: Settings.get('shouldShowNoteLabels') || true,
-        numberOfKeys: Settings.get('numberOfKeys') || 10,
-      },
+      shouldSpeakNotes: SettingsManager.get('shouldSpeakNotes'),
+      shouldShowNoteLabels: SettingsManager.get('shouldShowNoteLabels'),
+      numberOfKeys: SettingsManager.get('numberOfKeys'),
     });
   }
 
   render() {
-    if (!this.state.kalimbaSettings) {
+    if (!this.state) {
       return null;
     }
 
@@ -59,7 +58,7 @@ export default class SettingsScreen extends React.Component {
             thumbColor="#f5dd4b"
             ios_backgroundColor="#3e3e3e"
             onValueChange={this.setSpeakNotesSetting}
-            value={this.state.kalimbaSettings.shouldSpeakNotes}
+            value={this.state.shouldSpeakNotes}
           />
         </View>
 
@@ -71,7 +70,7 @@ export default class SettingsScreen extends React.Component {
             thumbColor="#f5dd4b"
             ios_backgroundColor="#3e3e3e"
             onValueChange={this.setShowNoteLabelsSetting}
-            value={this.state.kalimbaSettings.shouldShowNoteLabels}
+            value={this.state.shouldShowNoteLabels}
           />
         </View>
       </View>

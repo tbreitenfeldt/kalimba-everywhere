@@ -6,10 +6,10 @@ import {
   Dimensions,
   StatusBar,
   Button,
-  Settings,
 } from 'react-native';
 
 import Kalimba from '../components/Kalimba';
+import SettingsManager from '../utils/settingsManager';
 
 export default class KalimbaScreen extends React.Component {
   constructor(props) {
@@ -45,13 +45,12 @@ export default class KalimbaScreen extends React.Component {
 
     Dimensions.addEventListener('change', this.onChange);
 
-    this.setState({
-      kalimbaSettings: {
-        shouldSpeakNotes: Settings.get('shouldSpeakNotes') || false,
-        shouldShowNoteLabels: Settings.get('shouldShowNoteLabels') || true,
-        numberOfKeys: Settings.get('numberOfKeys') || 10,
-      },
-    });
+    const data = {
+      shouldSpeakNotes: SettingsManager.get('shouldSpeakNotes'),
+      shouldShowNoteLabels: SettingsManager.get('shouldShowNoteLabels'),
+      numberOfKeys: SettingsManager.get('numberOfKeys'),
+    };
+    this.setState({kalimbaSettings: data});
   }
 
   componentWillUnmount() {
